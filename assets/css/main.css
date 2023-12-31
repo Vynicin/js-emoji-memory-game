@@ -1,0 +1,100 @@
+@import url(./reset.css);
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fc1e8a;
+    user-select: none;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: linear-gradient(
+        325deg,
+        #03001E 0%, 
+        #7303C0 30%,
+        #ec38bc 70%,
+        #fdeff9 100%);
+    padding: 2.5rem 4rem;
+}
+
+h2{
+    font-size: 3em;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#reset {
+    padding: 1rem 1.5rem;
+    width: 100%;
+    color:  #ffffff;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 1.5em;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 2rem;
+    background-color: #966fc5;
+}
+
+#reset:focus {
+    color: #ec38bc;
+    background-color: #57387b;
+}
+
+.game {
+    width: 33rem;
+    height: 33rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    transform-style: preserve-3d;
+    perspective: 38rem;
+}
+
+.item {
+    position: relative;
+    width: 7.5rem;
+    height: 7.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    font-size: 3em;
+
+    transition: 0.25s;
+    transform: rotateY(180deg);
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(../images/card-back-side.jpg);
+    background-size: 150%;
+    background-color: rgb(40, 11, 85);
+    background-blend-mode: color-dodge;
+    background-position: center;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+    opacity: 0.5;
+}
+
+.item.boxOpen {
+    transform: rotateY(0deg);
+}
+
+.boxOpen::after,
+.boxMatch::after{
+    transform: rotateY(180deg);
+}
